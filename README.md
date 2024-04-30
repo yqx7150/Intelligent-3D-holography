@@ -11,7 +11,7 @@ This code runs with Python 3.8.17, Pytorch 2.0.1 and TensorRT 8.6.0
 **- [./src/](./src/)**
 - [train.py](./src/train.py): The training code of the model
 - [NET1.py](./src/NET1.py): The network structure of the model1
-- [data_loader.py](./src/data_loader.py): The data loader of the model
+- [data_Loader.py](./src/data_Loader.py): The data loader of the model
 - [rtholo.py](./src/rtholo.py): The code of the real-time holography
 - [predict_rgbd_multiprocess.py](./src/predict_rgbd_multiprocess.py): The testing code of the model
 - [trt.py](./src/trt.py): The code of TensorRT class
