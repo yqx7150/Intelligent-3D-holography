@@ -131,7 +131,7 @@ train_loader = data_loader(opt, type="train")
 # val_loader = data_loader(opt, type="val")
 
 # Load models #
-self_holo = rtholo(
+rtholo = rtholo(
     size=opt.img_size,
     feature_size=opt.feature_size,
     distance_range=opt.distance_range,
@@ -168,7 +168,7 @@ if opt.l2_loss:
 mseloss = nn.MSELoss()
 mseloss = mseloss.to(device)
 # create optimizer
-optvars = self_holo.parameters()
+optvars = rtholo.parameters()
 optimizer = optim.Adam(optvars, lr=opt.lr)
 
 if opt.cosineLR is True:
@@ -204,7 +204,7 @@ for i in range(opt.num_epochs):
 
         ik = k + i * len(train_loader)
 
-        holo, slm_amp, recon_field = self_holo(source, ikk)
+        holo, slm_amp, recon_field = rtholo(source, ikk)
 
         output_amp = 0.95 * recon_field.abs()
         output_amp_save = output_amp
@@ -295,7 +295,7 @@ for i in range(opt.num_epochs):
 
     # save trained model
     torch.save(
-        self_holo.state_dict(),
+        rtholo.state_dict(),
         os.path.join("checkpoints", run_id, "{}.pth".format(i + 1)),
     )
 
