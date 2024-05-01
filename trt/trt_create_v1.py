@@ -78,7 +78,7 @@ def onnx2trt(onnx_path, trt_path, bUseFP16Mode=False):
 device = torch.device("cuda")
 # checkpoint1 = torch.load("/home/pat/code/djq/rtholo/src/checkpoints/CNN_1024_30/82.pth")    
 checkpoint1 = torch.load("/home/pat/code/djq/backup/src/checkpoints/CNN_1024_30/53.pth") 
-self_holo = rtholo(
+rtholo = rtholo(
     size=img_size,
     distance_range=distance_range,
     layers_num=layers_num,
@@ -86,12 +86,12 @@ self_holo = rtholo(
     num_layers=num_layers,
     CNNPP = CNNPP
 ).to(device)
-self_holo.load_state_dict(checkpoint1)
+rtholo.load_state_dict(checkpoint1)
 
-self_holo.eval()
+rtholo.eval()
 
 t.onnx.export(
-    self_holo.get_Network1(),
+    rtholo.get_Network1(),
     t.randn(1, 2, img_size, img_size, device="cuda"),
     onnxFile1,
     input_names=["rgb_d"],
@@ -109,7 +109,7 @@ t.onnx.export(
 print("Succeeded converting network1 into ONNX!")
 
 t.onnx.export(
-    self_holo.get_Network2(),
+    rtholo.get_Network2(),
     t.randn(1, 2, img_size, img_size, device="cuda"),
     onnxFile2,
     input_names=["complex_amp"],
