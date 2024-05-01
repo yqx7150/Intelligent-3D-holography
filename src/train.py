@@ -143,9 +143,9 @@ rtholo = rtholo(
 ).to(device)
 
 if(opt.ckpt_continue is not None):
-    self_holo.load_state_dict(torch.load(opt.ckpt_continue))
+    rtholo.load_state_dict(torch.load(opt.ckpt_continue))
 
-self_holo.train()  # generator to be trained
+rtholo.train()  # generator to be trained
 
 # Loss function
 if opt.p_loss:
@@ -191,7 +191,6 @@ ikk_probability = np.zeros(opt.layer_num)
 # Training loop #
 for i in range(opt.num_epochs):
     train_loss = []
-    # self_holo.train()  # generator to be trained
     dataLoader.epoch_num = i
     for k, target in enumerate(train_loader):
         # get target image
