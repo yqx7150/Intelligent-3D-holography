@@ -1,6 +1,9 @@
 # **Real-time intelligent 3D holographic photography for real-world scenarios**
 
 Xianlin Song, Jiaqing Dong, Minghao Liu, Zehao Sun, Zibang Zhang, Jianghao Xiong, Zilong Li, Xuan Liu, Qiegen Liu*
+Real-time intelligent 3D holographic photography for real-world scenarios       
+Optics Express Vol. 32, Issue 14, pp. 24540-24552 (2024)      
+https://doi.org/10.1364/OE.529107    
 
 https://github.com/djq-2000/123/assets/56143723/b8c3cbd7-5bac-45f7-ad20-8a40451dd00d
 
